@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="review.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="skills">
+      <div class="skill">
+        <div class="skill-name">5star rating</div>
+        <div class="skill-bar">
+          <div class="skill-per" per="90"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-name"> 4star rating</div>
+        <div class="skill-bar">
+          <div class="skill-per" per="75"></div>
+        </div>
+      </div>
+        <div class="skill">
+        <div class="skill-name">3star rating </div>
+        <div class="skill-bar">
+          <div class="skill-per" per="50"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-name">2star rating</div>
+        <div class="skill-bar">
+          <div class="skill-per" per="25"></div>
+        </div>
+      </div>
+        <div class="skill">
+        <div class="skill-name">1star rating</div>
+        <div class="skill-bar">
+          <div class="skill-per" per="10"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $('.skill-per').each(function(){
+        var $this = $(this);
+        var per = $this.attr('per');
+        $this.css("width",per+'%');
+        $({animatedValue: 0}).animate({animatedValue: per},{
+          duration: 1000,
+          step: function(){
+            $this.attr('per', Math.floor(this.animatedValue) + '%');
+          },
+          complete: function(){
+            $this.attr('per', Math.floor(this.animatedValue) + '%');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
